@@ -20,19 +20,25 @@ window.onload = function(e) {
 		$html = document.getElementById("html"),
 		$preview = document.getElementById("preview");
 	
-	var state = {
+	var state = JSON.parse(localStorage.getItem("state")) ||{
 		text: "# hello",
 		html: ""
 	};
+
+	$markdown.value = state.text;
+	$preview.innerHTML = state.html;
+	$html.value = state.html;
 	
 	function update(e) {
 		state.text = $markdown.value;
 
 		state.html = NcaMarked(state.text);
-		
+
 		$preview.innerHTML = state.html;
 		$html.value = state.html;
-	} update();
+
+		localStorage.setItem("state", JSON.stringify(state));
+	}
 	
 	$markdown.addEventListener("change", update);
 	$markdown.addEventListener("keyup", update);
