@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.item[data-id="left"] {
+    border-right: 1px solid #b8b9bb;
+    background-color: #f1f3f5;
+    flex-basis: calc(100% - 743px);
+    height: 100vh;
+}
+.item[data-id="right"] {
+    flex-basis: 743px;
+    height: 100vh;
+}
+
+.item[data-id="left"] textarea {
+    background: inherit;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    resize: none;
+}
+
+#markdown {
+    height: calc(100% - 61px);
+    border-bottom: 1px solid #b8b9bb;
+}
+
+#html {
+    height: 60px;
+}
+
+#preview {
+    width: 743px;
+    list-style: none;
+    padding: 0;
+    font-family: '돋움', 'dotum', Helvetica, sans-serif;
+    font-size: 12px;
+    word-wrap: break-word;
+    color: #666666;
+    overflow-y: auto;
+}
